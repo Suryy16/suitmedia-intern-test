@@ -1,6 +1,7 @@
 package com.example.suitmediaapp.ui.screens
 
 import android.widget.Toast
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.CircleShape
@@ -15,10 +16,13 @@ import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.RectangleShape
+import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
+import com.example.suitmediaapp.R
 import com.example.suitmediaapp.viewmodel.UserViewModel
 
 
@@ -39,6 +43,13 @@ fun FirstScreen(navController: NavController, viewModel: UserViewModel) {
                 )
             )
     ) {
+        Image(
+            painter = painterResource(id = R.drawable.background), // Ganti dengan nama file gambar
+            contentDescription = null,
+            modifier = Modifier.fillMaxSize(),
+            contentScale = ContentScale.FillBounds // Menyesuaikan gambar dengan ukuran layar
+        )
+
         Column(
             modifier = Modifier
                 .fillMaxSize()
@@ -47,17 +58,16 @@ fun FirstScreen(navController: NavController, viewModel: UserViewModel) {
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
             // User Icon
-            Icon(
-                imageVector = Icons.Filled.Add,
+            Image(
+                painter = painterResource(id = R.drawable.ic_personadd),
                 contentDescription = "User Icon",
                 modifier = Modifier
-                    .size(80.dp)
-                    .background(Color.White, CircleShape)
-                    .padding(16.dp),
-                tint = Color(0xFF0288D1)
+                    .size(160.dp)
+                    .background(Color.Transparent, CircleShape)
+                    .padding(16.dp)
             )
 
-            Spacer(modifier = Modifier.height(32.dp))
+            Spacer(modifier = Modifier.height(60.dp))
 
             // Input Name
             TextField(
@@ -68,12 +78,12 @@ fun FirstScreen(navController: NavController, viewModel: UserViewModel) {
                 },
                 placeholder = {
                     Text("Name", style = MaterialTheme.typography.titleLarge.copy(
-                        color = Color.Gray,
+                        color = Color.Gray.copy(alpha = 0.5f),
                         fontWeight = FontWeight.Medium
                     )) },
                 modifier = Modifier
                     .fillMaxWidth()
-                    .background(Color.White, RoundedCornerShape(8.dp))
+                    .background(Color.White, RoundedCornerShape(14.dp))
                     .padding(horizontal = 8.dp),
                     //.shadow(8.dp, RectangleShape),
                 colors = TextFieldDefaults.textFieldColors(
@@ -81,7 +91,7 @@ fun FirstScreen(navController: NavController, viewModel: UserViewModel) {
                     focusedIndicatorColor = Color.Transparent,
                     unfocusedIndicatorColor = Color.Transparent
                 ),
-                textStyle = MaterialTheme.typography.bodyLarge
+                textStyle = MaterialTheme.typography.bodyLarge,
             )
 
             Spacer(modifier = Modifier.height(32.dp))
@@ -91,12 +101,12 @@ fun FirstScreen(navController: NavController, viewModel: UserViewModel) {
                 value = sentence,
                 onValueChange = { sentence = it },
                 placeholder = { Text("Palindrome", style = MaterialTheme.typography.titleLarge.copy(
-                    color = Color.Gray,
+                    color = Color.Gray.copy(alpha = 0.5f),
                     fontWeight = FontWeight.Medium
                 )) },
                 modifier = Modifier
                     .fillMaxWidth()
-                    .background(Color.White, RoundedCornerShape(8.dp))
+                    .background(Color.White, RoundedCornerShape(14.dp))
                     .padding(horizontal = 8.dp),
                     //.shadow(8.dp, RectangleShape),
                 colors = TextFieldDefaults.textFieldColors(

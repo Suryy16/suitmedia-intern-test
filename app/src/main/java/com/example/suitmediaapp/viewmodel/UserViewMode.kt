@@ -17,7 +17,11 @@ class UserViewModel : ViewModel() {
     private val _selectedUser = MutableStateFlow<User?>(null)
     val selectedUser: StateFlow<User?> = _selectedUser
 
+    private val _isRefreshing = MutableStateFlow(false)
+    val isRefreshing: StateFlow<Boolean> = _isRefreshing
+
     private var currentPage = 1
+    private val perPage = 20
 
     private val _name = MutableStateFlow("")
     val name: StateFlow<String> = _name
@@ -28,9 +32,31 @@ class UserViewModel : ViewModel() {
 
     fun fetchUsers() {
         viewModelScope.launch {
-            val response = repository.getUsers(currentPage, 10)
+            val response = repository.getUsers(currentPage, perPage)
             response?.let {
                 _users.value = it.data
+            }
+        }
+    }
+
+    fun refreshUsers() {
+        viewModelScope.launch {
+            _isRefreshing.value = true
+            currentPage = 1
+            val response = repository.getUsers(currentPage, perPage)
+            response?.let {
+                _users.value = it.data
+            }
+            _isRefreshing.value = false
+        }
+    }
+
+    fun loadNextPage() {
+        viewModelScope.launch {
+            currentPage++
+            val response = repository.getUsers(currentPage, perPage)
+            response?.let {
+                _users.value = _users.value + it.data
             }
         }
     }
