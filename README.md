@@ -32,7 +32,7 @@ This application has 3 screens:
 ### Third Screen
 
 - It has a list/table view of users.
-- Collects data from the [regres.in](regres.in) API with email, first_name, last_name, and avatar.
+- Collects data from the regres.in API with email, first_name, last_name, and avatar.
 - Adds a pull-to-refresh and loads the next page when scrolling to the bottom of the list. Prepares an empty state if data is empty. You can use the API with parameters `page` and `per_page` to get the next page data.
 - When a user on the item list is clicked, the selected user's name label in the Second Screen will be replaced by the selected user's name (without creating a new screen, just continue the current screen).
 
@@ -101,6 +101,6 @@ This project is licensed under the MIT License. See the LICENSE file for more de
 
 ## Contact
 
-For any inquiries, please contact [Suryy16](github.com/Suryy16).
+For any inquiries, please contact [Suryy16](https://github.com/Suryy16)..
 
 Feel free to customize this README file according to your project's specific details and requirements.
