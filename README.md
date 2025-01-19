@@ -1,5 +1,5 @@
+# Suitmedia App 
 <img src="screenshots/site-logo.png" alt="Suitmedia logo" width="100"> 
-# Suitmedia App
 
 Suitmedia App is a sample Android application built using Jetpack Compose. This application was created as a test for a mobile developer intern position at Suitmedia. The app demonstrates the use of modern Android development practices, including MVVM architecture, Retrofit for network requests, and Compose for UI.
 
