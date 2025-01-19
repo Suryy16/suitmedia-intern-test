@@ -26,6 +26,14 @@ import com.example.suitmediaapp.R
 import com.example.suitmediaapp.viewmodel.UserViewModel
 
 
+/**
+ * FirstScreen is a composable function that displays the first screen of the application.
+ * It includes a background image, user icon, input fields for name and palindrome check,
+ * and buttons to check palindrome and navigate to the next screen.
+ *
+ * @param navController The NavController used for navigation between screens.
+ * @param viewModel The UserViewModel used to manage user-related data.
+ */
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun FirstScreen(navController: NavController, viewModel: UserViewModel) {
@@ -44,10 +52,10 @@ fun FirstScreen(navController: NavController, viewModel: UserViewModel) {
             )
     ) {
         Image(
-            painter = painterResource(id = R.drawable.background), // Ganti dengan nama file gambar
+            painter = painterResource(id = R.drawable.background),
             contentDescription = null,
             modifier = Modifier.fillMaxSize(),
-            contentScale = ContentScale.FillBounds // Menyesuaikan gambar dengan ukuran layar
+            contentScale = ContentScale.FillBounds
         )
 
         Column(
@@ -85,7 +93,6 @@ fun FirstScreen(navController: NavController, viewModel: UserViewModel) {
                     .fillMaxWidth()
                     .background(Color.White, RoundedCornerShape(14.dp))
                     .padding(horizontal = 8.dp),
-                    //.shadow(8.dp, RectangleShape),
                 colors = TextFieldDefaults.textFieldColors(
                     containerColor = Color.White,
                     focusedIndicatorColor = Color.Transparent,
@@ -108,7 +115,6 @@ fun FirstScreen(navController: NavController, viewModel: UserViewModel) {
                     .fillMaxWidth()
                     .background(Color.White, RoundedCornerShape(14.dp))
                     .padding(horizontal = 8.dp),
-                    //.shadow(8.dp, RectangleShape),
                 colors = TextFieldDefaults.textFieldColors(
                     containerColor = Color.White,
                     focusedIndicatorColor = Color.Transparent,

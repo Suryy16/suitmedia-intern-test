@@ -8,6 +8,10 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
 
+/**
+ * UserViewModel is a ViewModel class that manages the user-related data and operations.
+ * It interacts with the UserRepository to fetch and update user data.
+ */
 class UserViewModel : ViewModel() {
     private val repository = UserRepository()
 
@@ -30,6 +34,9 @@ class UserViewModel : ViewModel() {
         fetchUsers() // Ensure users are fetched when ViewModel is created
     }
 
+    /**
+     * Fetches the list of users from the repository.
+     */
     fun fetchUsers() {
         viewModelScope.launch {
             val response = repository.getUsers(currentPage, perPage)
@@ -39,6 +46,9 @@ class UserViewModel : ViewModel() {
         }
     }
 
+    /**
+     * Refreshes the list of users by resetting the current page and fetching the first page of users.
+     */
     fun refreshUsers() {
         viewModelScope.launch {
             _isRefreshing.value = true
@@ -51,6 +61,9 @@ class UserViewModel : ViewModel() {
         }
     }
 
+    /**
+     * Loads the next page of users and appends them to the current list.
+     */
     fun loadNextPage() {
         viewModelScope.launch {
             currentPage++
@@ -61,10 +74,20 @@ class UserViewModel : ViewModel() {
         }
     }
 
+    /**
+     * Selects a user and updates the selectedUser state.
+     *
+     * @param user The user to be selected.
+     */
     fun selectUser(user: User) {
         _selectedUser.value = user
     }
 
+    /**
+     * Updates the name state with the new name.
+     *
+     * @param newName The new name to be updated.
+     */
     fun updateName(newName: String) {
         _name.value = newName
     }

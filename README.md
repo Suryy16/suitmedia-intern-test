@@ -1,12 +1,40 @@
 # Suitmedia App
 
-Suitmedia App is a sample Android application built using Jetpack Compose. The app demonstrates the use of modern Android development practices, including MVVM architecture, Retrofit for network requests, and Compose for UI.
+Suitmedia App is a sample Android application built using Jetpack Compose. This application was created as a test for a mobile developer intern position at Suitmedia. The app demonstrates the use of modern Android development practices, including MVVM architecture, Retrofit for network requests, and Compose for UI.
 
 ## Features
 
-- **First Screen**: Allows users to input their name and check if a sentence is a palindrome.
-- **Second Screen**: Displays a welcome message and the selected user's name.
-- **Third Screen**: Displays a list of users with pagination and pull-to-refresh functionality.
+This application has 3 screens:
+
+### First Screen
+
+- It has two input texts and two buttons.
+- One input text for name input and the other for input sentence text, to check whether the sentence is a palindrome or not.
+
+  Examples:
+  - `isPalindrome("kasur rusak")` -> true
+  - `isPalindrome("step on no pets")` -> true
+  - `isPalindrome("put it up")` -> true
+  - `isPalindrome("suitmedia")` -> false
+
+- A button with a “Check” title below the input texts.
+- Shows a dialog with the message “isPalindrome” if it’s a palindrome and the message “not palindrome” if it’s not a palindrome when clicking the Check button.
+- A button with a “Next” title below the Check button.
+- Navigates to the Second Screen when clicking the Next button.
+
+### Second Screen
+
+- It has a static “Welcome” text label.
+- It has two dynamic labels for showing the name from the first screen and the selected user's name.
+- It has a button “Choose a User”.
+- Clicking the “Choose a User” button navigates to the Third Screen.
+
+### Third Screen
+
+- It has a list/table view of users.
+- Collects data from the Reqres API with email, first_name, last_name, and avatar.
+- Adds a pull-to-refresh and loads the next page when scrolling to the bottom of the list. Prepares an empty state if data is empty. You can use the API with parameters `page` and `per_page` to get the next page data.
+- When a user on the item list is clicked, the selected user's name label in the Second Screen will be replaced by the selected user's name (without creating a new screen, just continue the current screen).
 
 ## Screenshots
 

@@ -21,6 +21,15 @@ import androidx.navigation.NavController
 import com.example.suitmediaapp.R
 import com.example.suitmediaapp.viewmodel.UserViewModel
 
+/**
+ * SecondScreen is a composable function that displays the second screen of the application.
+ * It includes a top app bar with a back button, a welcome message, the selected user's name,
+ * and a button to navigate to the third screen.
+ *
+ * @param navController The NavController used for navigation between screens.
+ * @param viewModel The UserViewModel used to manage user-related data.
+ */
+
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun SecondScreen(navController: NavController, viewModel: UserViewModel) {

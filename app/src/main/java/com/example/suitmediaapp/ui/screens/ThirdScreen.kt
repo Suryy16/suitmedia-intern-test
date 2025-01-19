@@ -29,6 +29,15 @@ import com.example.suitmediaapp.R
 import com.example.suitmediaapp.viewmodel.UserViewModel
 import kotlinx.coroutines.launch
 
+/**
+ * ThirdScreen is a composable function that displays the third screen of the application.
+ * It includes a top app bar with a back button, a list of users, and handles user selection.
+ * The screen supports pull-to-refresh and infinite scrolling to load more users.
+ *
+ * @param navController The NavController used for navigation between screens.
+ * @param viewModel The UserViewModel used to manage user-related data.
+ */
+
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun ThirdScreen(navController: NavController, viewModel: UserViewModel) {

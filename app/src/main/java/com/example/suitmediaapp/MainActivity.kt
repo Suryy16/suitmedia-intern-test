@@ -21,6 +21,10 @@ import com.example.suitmediaapp.ui.screens.ThirdScreen
 import com.example.suitmediaapp.ui.theme.SuitmediaAppTheme
 import com.example.suitmediaapp.viewmodel.UserViewModel
 
+/**
+ * MainActivity is the main entry point of the application.
+ * It sets the content view to the SuitmediaAppTheme and displays the MainActivityScreen composable.
+ */
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -32,6 +36,12 @@ class MainActivity : ComponentActivity() {
     }
 }
 
+/**
+ * MainActivityScreen is a composable function that sets up the navigation for the application.
+ * It uses a NavHost to manage navigation between different screens.
+ *
+ * @param viewModel The UserViewModel instance used to manage user-related data.
+ */
 @Composable
 fun MainActivityScreen(viewModel: UserViewModel = viewModel()) {
     val navController = rememberNavController()
